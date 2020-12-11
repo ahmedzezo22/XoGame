@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="index.css">
+    <title>Xo-game</title>
+</head>
+  
+<body>
+   <div class="box">
+      <div class="squar" id="A1" onclick=insert(this.id)></div>
+      <div class="squar" id="A2"onclick=insert(this.id)></div>
+      <div class="squar" id="A3"onclick=insert(this.id)></div>
+      <div class="squar" id="A4"onclick=insert(this.id)></div>
+      <div class="squar" id="A5"onclick=insert(this.id)></div>
+      <div class="squar" id="A6"onclick=insert(this.id)></div>
+      <div class="squar" id="A7"onclick=insert(this.id)></div>
+      <div class="squar" id="A8"onclick=insert(this.id)></div>
+      <div class="squar" id="A9"onclick=insert(this.id)></div>
+   </div>
+<script>
+   
+    var turn=true;
+
+    function rest(a,b,c){
+        document.getElementById("A" +a).style.color="#000";
+         document.getElementById("A" +b).style.color="#000";
+         document.getElementById("A" +c).style.color="#000";
+            
+         setTimeout(function(){
+            location.reload();
+            },1000);
+         
+    }
+    function checkWinner(){
+        var squares=[];
+        for(var i=1;i<=9;i++){
+            squares[i]=document.getElementById('A'+i).innerHTML;
+            
+        }
+        if(squares[1]===squares[2]&& squares[2]===squares[3] && squares[1]!==""){
+            alert('player' + squares[1] +'wins game');
+            rest(1,2,3);
+        }
+        if(squares[4]===squares[5]&& squares[5]===squares[6] && squares[5]!==""){
+            alert('player' + squares[5] +'wins game');
+             rest(4,5,6);
+        }
+        if(squares[7]===squares[8]&& squares[8]===squares[9] && squares[9]!==""){
+            alert('player' + squares[9] +'wins game');
+             rest(7,8,9);
+        }
+        if(squares[1]===squares[4]&& squares[4]===squares[7] && squares[7]!==""){
+            alert('player' + squares[7] +'wins game');
+             rest(1,4,7);
+        }
+        if(squares[2]===squares[5]&& squares[5]===squares[8] && squares[8]!==""){
+            alert('player' + squares[8] +'wins game');
+             rest(2,5,8);
+        }
+        if(squares[3]===squares[6]&& squares[6]===squares[9] && squares[9]!==""){
+            alert('player' + squares[9] +'wins game');
+             rest(3,6,9);
+        }if(squares[3]===squares[5]&& squares[5]===squares[7] && squares[7]!==""){
+            alert('player' + squares[3] +'wins game');
+             rest(3,5,7);
+        }
+        if(squares[1]===squares[5]&&squares[5]===squares[9]&&squares[9]!==""){
+            alert('player' + squares[9] +'wins game');
+             rest(1,5,9);
+        }
+        
+    }
+    
+    function insert(id){
+        var s=document.getElementById(id);
+        
+        if(turn && s.innerHTML===""){
+            s.innerHTML='X';
+            turn =!turn;
+        }else if(!turn && s.innerHTML==="" ){
+            s.innerHTML='O';
+            turn =!turn;
+            }
+            checkWinner();
+        
+    }
+ var array = ["Ahmed", "Ali", "Boray", "C", "D", "Ahmed"];
+
+var newArrway = array.filter(function(element, index) {
+  return array.indexOf(element) === index;
+});
+
+console.log(newArrway); // ["A", "B", "C", "D"]
+   var array=["ahmed","ali","ahmed","ibrahim"];
+    console.log(array);
+   var newArray=array.filter(function(element,index){
+   return array.indexOf(element)===index;
+    });
+   console.log(newArray);
+var x="ahmed";
+console.log(x + "ali");
+var arr=["aaa","cc"];
+console.log(arr);
+arr.push("aaaa");
+console.log(arr);
+
+</script>
+</body>
+
+</html>
